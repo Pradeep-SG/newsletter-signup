@@ -13,7 +13,7 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/signup.html");
@@ -59,7 +59,7 @@ app.post("/failure", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(process.env.PORT || 3000, () => console.log(`Server is up and running.`));
+app.listen(port, () => console.log(`Server is up and running at port ${port}`));
 
 
 //API key
